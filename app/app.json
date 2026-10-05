@@ -1,0 +1,49 @@
+{
+  "expo": {
+    "name": "Vision ROS",
+    "slug": "vision-ros",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#0b0f17",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.bajeejames.visionros",
+      "infoPlist": {
+        "NSCameraUsageDescription": "The camera feed is sent to your ROS2 computer for motion and hand detection.",
+        "NSLocalNetworkUsageDescription": "Connects to the ROS2 computer (rosbridge) on your local network.",
+        "NSAppTransportSecurity": { "NSAllowsLocalNetworking": true, "NSAllowsArbitraryLoads": true }
+      }
+    },
+    "android": {
+      "package": "com.bajeejames.visionros",
+      "adaptiveIcon": {
+        "backgroundColor": "#0b0f17",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "permissions": ["android.permission.CAMERA"],
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "name": "Vision ROS"
+    },
+    "plugins": [
+      "expo-image",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "The camera feed is sent to your ROS2 computer for motion and hand detection.",
+          "recordAudioAndroid": false
+        }
+      ],
+      [
+        "expo-build-properties",
+        { "android": { "usesCleartextTraffic": true } }
+      ]
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+motion_node:
+  ros__parameters:
+    process_width: 320      # frames are downscaled to this width before background subtraction
+    var_threshold: 25.0     # MOG2 sensitivity: lower = more sensitive
+    min_area: 0.002         # ignore blobs smaller than 0.2% of the frame
+    heat_decay: 0.93        # heatmap memory: closer to 1 = longer trails
+    heatmap_every_n: 2
+
+hand_node:
+  ros__parameters:
+    max_hands: 2
+    min_detection_confidence: 0.5
+    min_tracking_confidence: 0.5
+
+overlay_node:
+  ros__parameters:
+    jpeg_quality: 70
+    max_width: 960
+    stale_after: 1.0        # seconds before old detections stop being drawn
+    show_hud: true
+    show_boxes: true
+    show_skeleton: true
+    show_heatmap: true
